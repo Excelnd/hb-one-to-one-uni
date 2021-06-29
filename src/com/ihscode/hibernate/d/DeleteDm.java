@@ -8,7 +8,7 @@ import com.ihscode.hibernate.d.entity.Instructor;
 import com.ihscode.hibernate.d.entity.InstructorDetail;
 import com.ihscode.hibernate.d.entity.Student;
 
-public class CreateDm {
+public class DeleteDm {
 
 	public static void main(String[] args) {
 
@@ -24,24 +24,36 @@ public class CreateDm {
 		
 		try {
 
-
+			// create the objects
+//			Instructor tempInstructor =
+//					new Instructor("Ihs", "Kla", "ihus@luv2code.com");
+//			
+//			InstructorDetail tempinstructorDetail =
+//					new InstructorDetail(
+//							"http://www.ihs2code.com/youtube",
+//							"Luv 2 code!!!!!!");
+			
+			Instructor tempInstructor =
+					new Instructor("Azhu", "Bhai", "azhu@luv2code.com");
+			
+			InstructorDetail tempinstructorDetail =
+					new InstructorDetail(
+							"http://www.youtube.com",
+							"Sound Composing");
+			
+			// associate the objects
+			tempInstructor.setInstructorDetail(tempinstructorDetail);
+						
 			// start a transaction
 			session.beginTransaction();
 			
+			// save the instructor
+			//
+			// Note: this will Also save the details object because of CascadeType.ALL
+			//
+			System.out.println("Saving instructor: " + tempInstructor);
+			session.save(tempInstructor);
 			
-			// get instructor by primary key / id
-			int theId = 1;
-			Instructor tempInstructor =
-					session.get(Instructor.class, theId);
-			
-			System.out.println("Found instructor" + tempInstructor);
-		
-			// delete the instructors
-			if (tempInstructor != null ) {
-				System.out.println("Deleting: " + tempInstructor);
-				
-				session.delete(tempInstructor);
-			}
 			
 			// commit transaction
 			session.getTransaction().commit();

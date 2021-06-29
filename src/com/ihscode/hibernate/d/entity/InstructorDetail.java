@@ -31,7 +31,7 @@ public class InstructorDetail {
 	@Column(name="youtube_channel")
 	private String youTubeChannel;
 	
-	@Column(name="hooby")
+	@Column(name="hobby")
 	private String hobby;
 	
 	public InstructorDetail() {
