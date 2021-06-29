@@ -34,6 +34,10 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
+	// add new field for instructor (also add getters/setters)
+	
+	
+	
 	public InstructorDetail() {
 		
 	}
