@@ -24,24 +24,25 @@ public class CreateDm {
 		
 		try {
 
-
+			// create the objects
+			Instructor tempInstructor =
+					new Instructor("Ihs", "Kla", "ihus@luv2code.com");
+			
+			InstructorDetail tempinstructorDetail =
+					new InstructorDetail(
+							"http://www.ihs2code.com/youtube",
+							"Luv 2 code!!!!!!");
+			
+			// associate the objects
+			tempInstructor.setInstructorDetail(tempinstructorDetail);
+			
+			
 			// start a transaction
 			session.beginTransaction();
 			
-			
-			// get instructor by primary key / id
-			int theId = 1;
-			Instructor tempInstructor =
-					session.get(Instructor.class, theId);
-			
-			System.out.println("Found instructor" + tempInstructor);
-		
-			// delete the instructors
-			if (tempInstructor != null ) {
-				System.out.println("Deleting: " + tempInstructor);
-				
-				session.delete(tempInstructor);
-			}
+			// save the instructor
+			System.out.println("Saving instructor: " + tempInstructor);
+			session.save(tempInstructor);				
 			
 			// commit transaction
 			session.getTransaction().commit();

@@ -8,7 +8,7 @@ import com.ihscode.hibernate.d.entity.Instructor;
 import com.ihscode.hibernate.d.entity.InstructorDetail;
 import com.ihscode.hibernate.d.entity.Student;
 
-public class GetInstructorDetailDm {
+public class DeleteInstructorDetailDm {
 
 	public static void main(String[] args) {
 
@@ -28,7 +28,8 @@ public class GetInstructorDetailDm {
 			session.beginTransaction();
 
 			// get the instructor detail object
-			int theId = 299;
+			int theId = 2;
+			
 			InstructorDetail tempinstructorDetail =
 					session.get(InstructorDetail.class, theId);
 			
@@ -38,6 +39,12 @@ public class GetInstructorDetailDm {
 			// print the associated instructor
 			System.out.println("tempInstructorDetail: " + tempinstructorDetail);
 						
+			// Delete the instructor detail
+			System.out.println("Deleteing tempinstructorDetail: "
+											+ tempinstructorDetail);
+			
+			session.delete(tempinstructorDetail);
+			
 			
 			// commit transaction
 			session.getTransaction().commit();
@@ -54,7 +61,8 @@ public class GetInstructorDetailDm {
 			
 			factory.close();
 		}
-						
+					
+				
 
 	}
 
