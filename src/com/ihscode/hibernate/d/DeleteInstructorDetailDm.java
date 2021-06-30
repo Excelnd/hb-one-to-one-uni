@@ -44,8 +44,7 @@ public class DeleteInstructorDetailDm {
 											+ tempinstructorDetail);
 			
 			// remove the associated object reference
-			// break bi-directional link 
-			
+			// break bi-directional link 			
 			tempinstructorDetail.getInstructor().setInstructorDetail(null);
 			
 			session.delete(tempinstructorDetail);
