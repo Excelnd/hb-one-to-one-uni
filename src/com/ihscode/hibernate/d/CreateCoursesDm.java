@@ -38,7 +38,7 @@ public class CreateCoursesDm {
 			Course tempCourse2 = new Course("The Fitness Masteclass");
 			
 			// add courses to instructor
-			tempInstructor.add(tempCourse1);
+			tempInstructor.add(tempCourse1); 
 			tempInstructor.add(tempCourse2);
 			
 			// save the courses
