@@ -8,7 +8,7 @@ import com.ihscode.hibernate.d.entity.Course;
 import com.ihscode.hibernate.d.entity.Instructor;
 import com.ihscode.hibernate.d.entity.InstructorDetail;
 
-public class CreateCoursesDm {
+public class DeleteCoursesDm {
 
 	public static void main(String[] args) {
 
@@ -29,22 +29,15 @@ public class CreateCoursesDm {
 			// start a transaction
 			session.beginTransaction();
 			
-			// get the instructor from db
-			int theId = 1;
-			Instructor tempInstructor = session.get(Instructor.class, theId);
+			// get a course
+			int theId = 10;
+			Course tempCourse = session.get(Course.class, theId);
 			
-			// create some courses
-			Course tempCourse1 = new Course("Karate - The Ultimate Guide");
-			Course tempCourse2 = new Course("The Fitness Masteclass");
 			
-			// add courses to instructor
-			tempInstructor.add(tempCourse1); 
-			tempInstructor.add(tempCourse2);
-			
-			// save the courses
-			session.save(tempCourse1);
-			session.save(tempCourse2);
-				
+			// delete course
+			System.out.println("Deleting Course: " + tempCourse);
+			session.delete(tempCourse);
+							
 			
 			// commit transaction
 			session.getTransaction().commit();

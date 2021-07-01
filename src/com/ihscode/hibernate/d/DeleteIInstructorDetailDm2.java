@@ -8,7 +8,7 @@ import com.ihscode.hibernate.d.entity.Instructor;
 import com.ihscode.hibernate.d.entity.InstructorDetail;
 import com.ihscode.hibernate.d.entity.Student;
 
-public class DeleteInstructorDetailDm {
+public class DeleteIInstructorDetailDm2 {
 
 	public static void main(String[] args) {
 
@@ -28,8 +28,7 @@ public class DeleteInstructorDetailDm {
 			session.beginTransaction();
 
 			// get the instructor detail object
-			int theId = 3;
-			
+			int theId = 299;
 			InstructorDetail tempinstructorDetail =
 					session.get(InstructorDetail.class, theId);
 			
@@ -40,15 +39,8 @@ public class DeleteInstructorDetailDm {
 			System.out.println("tempInstructorDetail: " + tempinstructorDetail);
 						
 			// Delete the instructor detail
-			System.out.println("Deleteing tempinstructorDetail: "
-											+ tempinstructorDetail);
 			
-			// remove the associated object reference
-			// break bi-directional link 			
-			tempinstructorDetail.getInstructor().setInstructorDetail(null);
 			
-			session.delete(tempinstructorDetail);
-						
 			// commit transaction
 			session.getTransaction().commit();
 			
