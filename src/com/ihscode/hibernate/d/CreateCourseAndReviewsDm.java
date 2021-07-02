@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.ihscode.hibernate.d.entity.Course;
 import com.ihscode.hibernate.d.entity.Instructor;
 import com.ihscode.hibernate.d.entity.InstructorDetail;
+import com.ihscode.hibernate.d.entity.Review;
 
 public class CreateCourseAndReviewsDm {
 
@@ -18,6 +19,7 @@ public class CreateCourseAndReviewsDm {
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -30,12 +32,19 @@ public class CreateCourseAndReviewsDm {
 			session.beginTransaction();		
 			
 			// create a course
+			Course tempCourse = new Course("Doom - How To Score One Million Points");
 			
 			// add some reviews
+			tempCourse.addReview(new Review("Greate Course ... loved it!"));
+			tempCourse.addReview(new Review("What a Dumb course, you are an idiot!"));
+			tempCourse.addReview(new Review("Cool nice course, well done"));
 			
 			// save the course... and leverage the cascade all
+			System.out.println("Saving the course");
+			System.out.println(tempCourse);
+			System.out.println(tempCourse.getReviews());
 			
-				
+			session.save(tempCourse);
 			
 			// commit transaction
 			session.getTransaction().commit();
