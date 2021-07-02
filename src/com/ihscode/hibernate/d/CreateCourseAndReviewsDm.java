@@ -27,7 +27,14 @@ public class CreateCourseAndReviewsDm {
 
 			
 			// start a transaction
-			session.beginTransaction();			
+			session.beginTransaction();		
+			
+			// create a course
+			
+			// add some reviews
+			
+			// save the course... and leverage the cascade all
+			
 				
 			
 			// commit transaction
