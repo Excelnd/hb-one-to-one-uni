@@ -44,7 +44,7 @@ public class CreateCourseAndReviewsDm {
 			System.out.println(tempCourse);
 			System.out.println(tempCourse.getReviews());
 			
-			session.save(tempCourse);
+			session.save(tempCourse); 
 			
 			// commit transaction
 			session.getTransaction().commit();
